@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VannyDev</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/0e939e26e7.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#" class="logo"><img src="./assets/logo/myLogo.png" alt="My Logo"></a>
+      <nav class="nav" id="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+ 
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero" id="home">
+     <div class="hero__bg">
+      <div class="grid-lines"></div>
+          <canvas id="particles-canvas"></canvas>
+    </div>
+    <div class="hero__wrapper container">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Hello, I'm</p>
+        <h1 class="hero__name">Vanny<span>Dev</span></h1>
+        <p class="hero__tagline">Self-taught Full-stack Web Developer <br> Bot Developer</p>
+        <p class="hero__sub">I craft digital experiences that are fast, accessible, and genuinely delightful to use.</p>
+        <div class="hero__cta">
+          <a href="#work" class="btn btn--primary">View My Work</a>
+          <a href="#contact" class="btn btn--ghost">Contact Me</a>
+        </div>
+      </div>
+      <div class="hero__photo-col">
+        <div class="hero__photo-frame">
+          <!-- Replace the src below with your actual photo path e.g. src="photo.jpg" -->
+          <img src="./assets/images/myProfile.jpg" alt="Jovanny De Leon" class="hero__photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="hero__photo-placeholder">
+            <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="60" cy="48" r="32" fill="rgba(232,201,122,0.15)" stroke="rgba(232,201,122,0.3)" stroke-width="1.5"/>
+              <ellipse cx="60" cy="125" rx="50" ry="28" fill="rgba(232,201,122,0.1)" stroke="rgba(232,201,122,0.2)" stroke-width="1.5"/>
+              <circle cx="60" cy="48" r="18" fill="rgba(232,201,122,0.2)"/>
+            </svg>
+            <p>Your Photo Here</p>
+          </div>
+          <div class="hero__photo-ring hero__photo-ring--1"></div>
+          <div class="hero__photo-ring hero__photo-ring--2"></div>
+          <div class="hero__photo-badge">
+            <span>✦</span> Open to Work
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="hero__scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div> -->
+  </section>
+
+  <!-- ══════════ ABOUT ══════════ -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__image-wrap">
+          <div class="about__image">
+            <div class="image-placeholder">
+              <img src="./assets/images/myProfile.jpg" alt="Jovanny De Leon" class="hero__photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            </div>
+            <div class="about__badge">
+              <span class="badge-num">2+</span>
+              <span class="badge-label">Years Exp.</span>
+            </div>
+          </div>
+        </div>
+        <div class="about__text">
+          <p class="section-label">About Me</p>
+          <h2 class="section-title">Turning ideas into<br /><em>pixel‑perfect</em> products</h2>
+          <p class="about__body">I'm a Camarines Sur–based designer & developer  have acquired the skills and knowledge necessary to make your project a success. I enjoy every step while working.</p>
+          <p class="about__body">When I'm not in Figma or VS Code, you'll find me talking to foreign people using their native languages.</p>
+          <p class="section-label" style="margin-top:2rem;">Skills &amp; Tools</p>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/html.png" alt="HTML"></div>
+              <div class="skill-name">HTML</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/css.png" alt="CSS"></div>
+              <div class="skill-name">CSS</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/javascript.png" alt="JavaScript"></div>
+              <div class="skill-name">JS</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/typescript.png" alt="TypeScript"></div>
+              <div class="skill-name">TypeScript</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/c.png" alt="C"></div>
+              <div class="skill-name">C</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/c++.png" alt="CPP"></div>
+              <div class="skill-name">C++</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/python.png" alt="Python"></div>
+              <div class="skill-name">Python</div>
+            </div>   
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/php.png" alt="PHP"></div>
+              <div class="skill-name">PHP</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/java.png" alt="Java"></div>
+              <div class="skill-name">Java</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/nodejs.png" alt="NodeJS"></div>
+              <div class="skill-name">NodeJS</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/reactjs.png" alt="ReactJS"></div>
+              <div class="skill-name">ReactJS</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/vite.png" alt="Vite"></div>
+              <div class="skill-name">Vite</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/bootstrap.png" alt="Bootstrap"></div>
+              <div class="skill-name">Bootstrap</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/tailwind.png" alt="Tailwind"></div>
+              <div class="skill-name">Tailwind</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/mongodb.png" alt="MongoDB"></div>
+              <div class="skill-name">MongoDB</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/mysql.png" alt="MySQL"></div>
+              <div class="skill-name">MySQL</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/git.png" alt="Git"></div>
+              <div class="skill-name">Git</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/npm.png" alt="NPM"></div>
+              <div class="skill-name">NPM</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/vscode.png" alt="Visual Studio Code"></div>
+              <div class="skill-name">VSCode</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/androidStudio.png" alt="Android Studio"></div>
+              <div class="skill-name">AndroidS</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><img class="skill-icon" src="./assets/logo/figma.png" alt=Figma"></div>
+              <div class="skill-name">Figma</div>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn--primary" style="margin-top:2rem;">Let's Work Together</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ WORK / PROJECTS ══════════ -->
+  <section class="work section" id="work">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Selected Work</p>
+        <h2 class="section-title">Projects I'm<br /><em>proud of</em></h2>
+      </div>
+      <div class="projects-grid">
+
+        <article class="project project--featured">
+          <img src="./assets/thumnails/qampus.png" alt="Qampus">
+          <div class="project__info">
+            <span class="project__tag">Web App + Mobile App</span>
+            <h3 class="project__title">Qampus</h3>
+            <p class="project__desc">A forward-looking web app and mobile application developed to improve the flexibility and usage of the queuing process in school offices, especially the cashier's office</p>
+            <div class="project__links">
+              <a href="https://qampus-production.up.railway.app/" target="_blank" class="link-arrow">Live Demo →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="./assets/thumnails/talktovanny.png" alt="TalkToVanny">
+          <div class="project__info">
+            <span class="project__tag">Branding + Web</span>
+            <h3 class="project__title">TalkToVanny</h3>
+            <p class="project__desc">Brand identity and portfolio site for an independent architecture studio based in Intramuros, Manila.</p>
+            <div class="project__links">
+              <a href="https://talktovanny.vercel.app/user/vanny/" target="_blank" class="link-arrow">Live Demo →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="./assets/thumnails/mathpad.png" alt="MathPad">
+          <div class="project__info">
+            <span class="project__tag">Web App</span>
+            <h3 class="project__title">MathPad</h3>
+            <p class="project__desc">MathPad is an interactive learning platform designed to help students master math through theory, quizzes, and real-time progress tracking.</p>
+            <div class="project__links">
+              <a href="javascript:void(0);" class="link-arrow" style="cursor: not-allowed;">Not Available →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ GALLERY ══════════ -->
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">A Little About Me</p>
+        <h2 class="section-title">Skills, Certificates &amp;<br /><em>Interests</em></h2>
+      </div>
+      <div class="gallery-grid">
+        
+        <article class="gallery-card">
+          <img src="./assets/thumnails/hackathon.png" alt="SparkLAB Hackathon" class="gallery-card__img">
+          <div class="gallery-card__info">
+            <span class="gallery-card__tag">Certificate</span>
+            <h3 class="gallery-card__title">SparkLAB Hackathon</h3>
+            <p class="gallery-card__desc">Competed at the SparkLAB Hackathon 2025.</p>
+            <div class="gallery-card__links">
+              <a href="./assets/thumnails/hackathon.png" class="link-arrow">View Certificate →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="gallery-card">
+          <img src="./assets/thumnails/softwarefestival.jfif" alt="Software Festival" class="gallery-card__img">
+          <div class="gallery-card__info">
+            <span class="gallery-card__tag">Certificate</span>
+            <h3 class="gallery-card__title">Software Festival 2026</h3>
+            <p class="gallery-card__desc">Actively participating in Software Festival 2026.</p>
+            <div class="gallery-card__links">
+              <a href="./assets/thumnails/softwarefestival.jfif" class="link-arrow">View Certificate →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Row 2: 3 equal cards -->
+        <!-- <article class="gallery-card">
+          <img src="./assets/thumnails/hackathon.png" alt="" class="gallery-card__img">
+          <div class="gallery-card__info">
+            <span class="gallery-card__tag">Achievement</span>
+            <h3 class="gallery-card__title">Your Title</h3>
+            <p class="gallery-card__desc">Your description here.</p>
+            <div class="gallery-card__links">
+              <a href="./assets/thumnails/hackathon.png" class="link-arrow">View More →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="gallery-card">
+          <img src="./assets/thumnails/hackathon.png" alt="" class="gallery-card__img">
+          <div class="gallery-card__info">
+            <span class="gallery-card__tag">Interests</span>
+            <h3 class="gallery-card__title">Your Title</h3>
+            <p class="gallery-card__desc">Your description here.</p>
+            <div class="gallery-card__links">
+              <a href="#" class="link-arrow">View More →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="gallery-card">
+          <img src="./assets/thumnails/hackathon.png" alt="" class="gallery-card__img">
+          <div class="gallery-card__info">
+            <span class="gallery-card__tag">Hobbies</span>
+            <h3 class="gallery-card__title">Your Title</h3>
+            <p class="gallery-card__desc">Your description here.</p>
+            <div class="gallery-card__links">
+              <a href="#" class="link-arrow">View More →</a>
+            </div>
+          </div>
+        </article> -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FOOTER / CONTACT ══════════ -->
+  <footer class="footer" id="contact">
+    <div class="footer__inner container">
+      <div class="footer__top">
+        <div class="footer__cta-block">
+          <p class="section-label" style="color: var(--accent);">Contact</p>
+          <h2 class="footer__heading">Got a project?<br /><em>Email me.</em></h2>
+          <a href="javascript:void(0);" class="footer__email" style="cursor: default;">
+            <span class="__cf_email__">
+              jovannydeleon2906@gmail.com
+            </span>
+          </a>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <p class="footer__col-title">Navigation</p>
+            <a href="#about">About</a>
+            <a href="#work">Work</a>
+            <a href="#gallery">Gallery</a>
+          </div>
+          <div class="footer__col">
+            <p class="footer__col-title">Connect</p>
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Dribbble</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <a href="#" class="logo"><img src="./assets/logo/myLogo.png" alt="My Logo"></a>
+        <p class="footer__copy">© 2026 Jovanny De Leon &amp; built with care.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
+  <script>
+    // ── Constellation Particles ──
+    (function () {
+      const canvas = document.getElementById('particles-canvas');
+      const ctx = canvas.getContext('2d');
+      let W, H, particles = [];
+      const mouse = { x: -9999, y: -9999 };
+      const COUNT = 80;
+      const MAX_DIST = 160;
+      const DOT_COLOR = 'rgba(255,255,255,0.7)';
+      const LINE_COLOR = 'rgba(255,255,255,';
+ 
+      function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = canvas.offsetHeight;
+      }
+      resize();
+      window.addEventListener('resize', () => { resize(); init(); });
+ 
+      window.addEventListener('mousemove', e => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY - canvas.getBoundingClientRect().top;
+      });
+      window.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+ 
+      function rand(min, max) { return Math.random() * (max - min) + min; }
+ 
+      class Particle {
+        constructor() {
+          this.x = rand(0, W);
+          this.y = rand(0, H);
+          this.vx = rand(-0.25, 0.25);
+          this.vy = rand(-0.25, 0.25);
+          this.r = rand(1.5, 3);
+        }
+        update() {
+          // mouse attraction
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 120) {
+            this.vx += dx / d * 0.04;
+            this.vy += dy / d * 0.04;
+          }
+          // speed cap
+          const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+          if (speed > 1.2) { this.vx *= 0.95; this.vy *= 0.95; }
+ 
+          this.x += this.vx;
+          this.y += this.vy;
+ 
+          // bounce off edges
+          if (this.x < 0 || this.x > W) this.vx *= -1;
+          if (this.y < 0 || this.y > H) this.vy *= -1;
+          this.x = Math.max(0, Math.min(W, this.x));
+          this.y = Math.max(0, Math.min(H, this.y));
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+          ctx.fillStyle = DOT_COLOR;
+          ctx.fill();
+        }
+      }
+ 
+      function init() {
+        particles = [];
+        for (let i = 0; i < COUNT; i++) particles.push(new Particle());
+      }
+      init();
+ 
+      function drawLines() {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < MAX_DIST) {
+              const alpha = (1 - d / MAX_DIST) * 0.35;
+              ctx.beginPath();
+              ctx.strokeStyle = LINE_COLOR + alpha + ')';
+              ctx.lineWidth = 0.6;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+ 
+      function loop() {
+        ctx.clearRect(0, 0, W, H);
+        drawLines();
+        particles.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(loop);
+      }
+      loop();
+    })();
+ 
+    // ── Hamburger menu ──
+    const ham = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+    ham.addEventListener('click', () => {
+      ham.classList.toggle('open');
+      nav.classList.toggle('open');
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      ham.classList.remove('open');
+      nav.classList.remove('open');
+    }));
+ 
+    // ── Sticky header shadow ──
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 40);
+    });
+ 
+    // ── Reveal on scroll ──
+    const reveals = document.querySelectorAll('.section, .project, .gallery-card');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
