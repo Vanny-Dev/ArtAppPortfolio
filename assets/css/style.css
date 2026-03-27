@@ -821,6 +821,12 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
+@media (max-width: 900px) {
+  .hero__wrapper {
+    flex-direction: column;
+  }
+}
+
 /* ══════════════════════════════════
    DESKTOP  ≥ 1024px
 ══════════════════════════════════ */
