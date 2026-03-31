@@ -401,7 +401,12 @@ a { color: inherit; text-decoration: none; }
   grid-template-columns: 1fr;
   gap: 3rem;
 }
-.about__image-wrap { display: flex; justify-content: center; }
+.about__image-wrap { 
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+  gap: 1.5rem;
+}
 .about__image {
   position: relative;
   width: 260px;
@@ -437,6 +442,56 @@ a { color: inherit; text-decoration: none; }
 
 .about__body { color: var(--text-muted); margin-bottom: 1rem; font-size: .95rem; }
 .about__text .section-title { margin-bottom: 1.5rem; }
+
+/* GitHub Contribution Graph */
+.github-contrib {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: .6rem;
+}
+.github-contrib__wrapper {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  padding: .75rem;
+}
+
+.github-contrib__wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.github-contrib__label {
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+/* .github-contrib__img {
+  width: 200%;
+  max-width: none;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  padding: .5rem;
+} */
+.github-contrib__link {
+  font-size: .8rem;
+  color: var(--text-muted);
+  transition: color var(--trans);
+}
+.github-contrib__link:hover { color: var(--accent); }
 
 .skills-grid {
   display: grid;
@@ -758,6 +813,20 @@ a { color: inherit; text-decoration: none; }
 /* ══════════════════════════════════
    TABLET  ≥ 640px
 ══════════════════════════════════ */
+/* GitHub stats moves under Let's Work Together on mobile */
+@media (max-width: 674px) {
+  .github-contrib { display: none; }
+
+  .github-contrib--mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .6rem;
+    margin-top: 2rem;
+    width: 100%;
+  }
+}
+
 @media (min-width: 675px) {
   .container { padding: 0 2rem; }
 
@@ -794,6 +863,9 @@ a { color: inherit; text-decoration: none; }
 
   /* About 2-col */
   .about__grid { grid-template-columns: 1fr 1.4fr; align-items: start; gap: 4rem; }
+
+  .github-contrib { display: flex; }
+  .github-contrib--mobile { display: none; }
 
   .skills-grid {
     grid-template-columns: repeat(3, 1fr);
