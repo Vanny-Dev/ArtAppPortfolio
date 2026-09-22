@@ -403,54 +403,93 @@
      11. LIGHTBOX
      ───────────────────────────────────────────── */
   function initLightbox() {
-    const box     = $('#lightbox');
+    const box = $('#lightbox');
     if (!box) return;
     const img     = $('.lightbox__img', box);
     const caption = $('.lightbox__caption', box);
     const closeEl = $('.lightbox__close', box);
+    const prevEl  = $('.lightbox__prev', box);
+    const nextEl  = $('.lightbox__next', box);
+    const countEl = $('.lightbox__count', box);
+
+    let items = [];     // [{src, caption}]
+    let index = 0;
     let lastFocus = null;
 
-    const open = (src, text) => {
+    /* An element carries either a set (data-gallery) or a single image */
+    function itemsFor(el) {
+      if (el.dataset.gallery) {
+        try {
+          const list = JSON.parse(el.dataset.gallery);
+          if (Array.isArray(list) && list.length) return list;
+        } catch (_) { /* fall through to the single-image form */ }
+      }
+      return [{ src: el.dataset.lightbox, caption: el.dataset.caption || '' }];
+    }
+
+    function render() {
+      const it = items[index];
+      if (!it) return;
+      img.src = it.src;
+      img.alt = it.caption || '';
+      caption.textContent = it.caption || '';
+
+      const many = items.length > 1;
+      box.classList.toggle('has-set', many);
+      if (countEl) countEl.textContent = many ? `${index + 1} / ${items.length}` : '';
+    }
+
+    const step = dir => {
+      if (items.length < 2) return;
+      index = (index + dir + items.length) % items.length;   // wraps both ways
+      render();
+    };
+
+    function open(list, startAt) {
       lastFocus = document.activeElement;
-      img.src = src;
-      img.alt = text || '';
-      caption.textContent = text || '';
+      items = list;
+      index = startAt || 0;
+      render();
       box.classList.add('open');
       box.setAttribute('aria-hidden', 'false');
       document.body.classList.add('nav-locked');
       closeEl.focus();
-    };
+    }
 
-    const close = () => {
-      box.classList.remove('open');
+    function close() {
+      box.classList.remove('open', 'has-set');
       box.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('nav-locked');
       if (lastFocus) lastFocus.focus();
       setTimeout(() => { if (!box.classList.contains('open')) img.src = ''; }, 400);
-    };
+    }
 
-    $$('[data-lightbox]').forEach(el => {
+    $$('[data-lightbox], [data-gallery]').forEach(el => {
       el.addEventListener('click', ev => {
         ev.preventDefault();
-        open(el.dataset.lightbox, el.dataset.caption || '');
+        open(itemsFor(el));
       });
-      /* Media wrappers are divs, so give them keyboard parity */
+      /* Divs need keyboard parity; buttons and links already have it */
       if (el.tagName !== 'A' && el.tagName !== 'BUTTON') {
         el.setAttribute('tabindex', '0');
         el.setAttribute('role', 'button');
         el.addEventListener('keydown', ev => {
-          if (ev.key === 'Enter' || ev.key === ' ') {
-            ev.preventDefault();
-            open(el.dataset.lightbox, el.dataset.caption || '');
-          }
+          if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); open(itemsFor(el)); }
         });
       }
     });
 
     closeEl.addEventListener('click', close);
+    if (prevEl) prevEl.addEventListener('click', e => { e.stopPropagation(); step(-1); });
+    if (nextEl) nextEl.addEventListener('click', e => { e.stopPropagation(); step(1); });
+
     box.addEventListener('click', e => { if (e.target === box) close(); });
+
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && box.classList.contains('open')) close();
+      if (!box.classList.contains('open')) return;
+      if (e.key === 'Escape')     close();
+      if (e.key === 'ArrowLeft')  step(-1);
+      if (e.key === 'ArrowRight') step(1);
     });
   }
 

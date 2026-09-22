@@ -104,7 +104,9 @@ body::before {
 
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
-button { font: inherit; color: inherit; }
+/* color:inherit without background:none makes a button's text vanish against
+   the UA default background — reset both together, always. */
+button { font: inherit; color: inherit; background: none; border: 0; }
 
 ::selection { background: var(--accent); color: var(--bg-deep); }
 
@@ -1062,7 +1064,7 @@ body.nav-locked { overflow: hidden; }
   box-shadow: 0 0 0 4px rgba(0, 210, 255, .10);
   transition: transform .35s var(--ease-spring), box-shadow var(--trans);
 }
-.timeline__item:hover .timeline__dot {
+.timeline__item--open:hover .timeline__dot {
   transform: scale(1.25);
   box-shadow: 0 0 0 6px rgba(0, 210, 255, .16), 0 0 14px var(--accent-glow);
 }
@@ -1101,6 +1103,29 @@ body.nav-locked { overflow: hidden; }
   border-radius: var(--radius-pill);
 }
 
+/* An actual win, not a participation line — filled so it reads as a result */
+.timeline__award {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin-left: .4rem;
+  margin-bottom: .55rem;
+  padding: .28rem .8rem;
+  border-radius: var(--radius-pill);
+  background: var(--grad-accent);
+  color: #02121c;
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 16px rgba(0, 210, 255, .25);
+}
+.timeline__award::before { content: '\2605'; font-size: .8rem; line-height: 1; }
+
+@media (max-width: 599px) {
+  .timeline__award { margin-left: 0; }
+}
+
 .timeline__title {
   font-family: var(--font-display);
   font-size: 1.18rem;
@@ -1109,7 +1134,9 @@ body.nav-locked { overflow: hidden; }
   margin-bottom: .25rem;
   transition: color var(--trans);
 }
-.timeline__item:hover .timeline__title { color: var(--accent-bright); }
+/* Only entries that actually open something highlight on hover —
+   otherwise education and the no-certificate entry look clickable. */
+.timeline__item--open:hover .timeline__title { color: var(--accent-bright); }
 
 .timeline__meta {
   font-size: .8rem;
@@ -1121,6 +1148,33 @@ body.nav-locked { overflow: hidden; }
   font-size: .86rem;
   color: var(--text-muted);
   max-width: 44rem;
+}
+
+/* For entries with no certificate to show */
+.timeline__note {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .76rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: .2rem;
+}
+.timeline__note::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text-faint);
+  flex-shrink: 0;
+}
+/* Must sit above .comp-open::after (z-index 2), which blankets the whole
+   entry — otherwise this link is unclickable. */
+.timeline__extlink {
+  position: relative;
+  z-index: 3;
+  margin-top: .85rem;
+  display: inline-flex;
 }
 
 .timeline__tags {
@@ -1306,15 +1360,110 @@ body.nav-locked { overflow: hidden; }
 .project__links { display: flex; flex-wrap: wrap; gap: 1.1rem; margin-top: auto; }
 
 /* ───────────────────────────────────────────────
+   10b. COMPETITIONS TIMELINE
+   Same rail as the education block. The whole entry is
+   the control: clicking anywhere opens the certificate.
+   ─────────────────────────────────────────────── */
+.competitions { background: var(--surface); border-block: 1px solid var(--hairline); }
+
+.timeline__item--open { cursor: zoom-in; }
+
+/* Hover plate, inset slightly so it reads as one target */
+.timeline__item--open::before {
+  content: '';
+  position: absolute;
+  inset: -.7rem -1rem .6rem -1rem;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background var(--trans), border-color var(--trans);
+  pointer-events: none;
+}
+.timeline__item--open:hover::before {
+  background: rgba(255, 255, 255, .03);
+  border-color: var(--border);
+}
+
+/* The title carries the button; ::after stretches it over the whole entry */
+.comp-open {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: zoom-in;
+  transition: color var(--trans);
+}
+.comp-open::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+.timeline__item--open:hover .comp-open { color: var(--accent-bright); }
+.comp-open:focus-visible { outline: none; }
+.comp-open:focus-visible::after {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* Expand glyph — the affordance that says this opens something */
+.comp-open__icon {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: .72rem;
+  font-family: var(--font-body);
+  opacity: .55;
+  transition: opacity var(--trans), transform .35s var(--ease-spring), background var(--trans);
+}
+.timeline__item--open:hover .comp-open__icon {
+  opacity: 1;
+  transform: scale(1.12);
+  background: var(--accent);
+  color: var(--bg-deep);
+}
+
+/* ───────────────────────────────────────────────
    11. GALLERY
    ─────────────────────────────────────────────── */
-.gallery { background: var(--surface); border-block: 1px solid var(--hairline); }
+.gallery { background: var(--bg); }
 
 .gallery-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.35rem;
 }
+
+.gallery-group + .gallery-group { margin-top: 3rem; }
+.gallery-group__title {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+.gallery-group__title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border-strong), transparent);
+}
+
 
 .gallery-card {
   position: relative;
@@ -1347,6 +1496,25 @@ body.nav-locked { overflow: hidden; }
   z-index: 3;
 }
 .gallery-card:hover { box-shadow: var(--shadow-lg); border-color: transparent; }
+
+/* Grouped cards run full width — a lone card in a 2-up grid leaves a hole */
+.gallery-group .gallery-grid { grid-template-columns: 1fr; }
+
+@media (min-width: 675px) {
+  .gallery-card.gallery-card--row { flex-direction: row; }
+  .gallery-card.gallery-card--row .gallery-card__media {
+    width: 40%;
+    aspect-ratio: auto;
+    min-height: 250px;
+  }
+  .gallery-card.gallery-card--row .gallery-card__info {
+    width: 60%;
+    justify-content: center;
+    padding: 1.9rem;
+  }
+  .gallery-card.gallery-card--row .gallery-card__title { font-size: 1.45rem; }
+  .gallery-card.gallery-card--row .gallery-card__desc  { font-size: .92rem; max-width: 34rem; }
+}
 .gallery-card:hover::after { opacity: .8; }
 
 .gallery-card__media {
@@ -1476,6 +1644,69 @@ body.nav-locked { overflow: hidden; }
   font-size: .85rem;
   color: var(--text-soft);
   letter-spacing: .02em;
+}
+
+/* Set navigation — only rendered when an entry has more than one image */
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  display: none;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(7, 18, 35, .85);
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 3;
+  transition: background var(--trans), color var(--trans), transform var(--trans);
+}
+.lightbox.has-set .lightbox__nav { display: grid; }
+.lightbox__nav:hover { background: var(--accent); color: var(--bg-deep); }
+.lightbox__prev { left: .8rem; }
+.lightbox__next { right: .8rem; }
+.lightbox__prev:hover { transform: translateY(-50%) translateX(-3px); }
+.lightbox__next:hover { transform: translateY(-50%) translateX(3px); }
+
+.lightbox__count {
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+  display: none;
+}
+.lightbox.has-set .lightbox__count { display: block; }
+
+@media (min-width: 900px) {
+  .lightbox__prev { left: 2rem; }
+  .lightbox__next { right: 2rem; }
+}
+
+/* Count badge on a timeline entry that holds several certificates */
+.comp-open__badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 .35rem;
+  margin-left: -.25rem;
+  border-radius: var(--radius-pill);
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: .64rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  transition: background var(--trans), color var(--trans);
+}
+.timeline__item--open:hover .comp-open__badge {
+  background: var(--accent);
+  color: var(--bg-deep);
 }
 
 .lightbox__close {
@@ -1859,7 +2090,7 @@ body.demo-open .gallery-card { transition: none; }
 }
 
 /* Sections clip their drifting glow */
-.about, .work, .gallery { overflow: hidden; }
+.about, .work, .competitions, .gallery { overflow: hidden; }
 
 /* ═══════════════════════════════════════════════
    15. RESPONSIVE

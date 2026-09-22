@@ -14,11 +14,11 @@
   <meta property="og:title" content="Vanny De Leon — Full-stack Web &amp; Bot Developer" />
   <meta property="og:description" content="Self-taught full-stack developer building fast, accessible web and mobile products." />
   <meta property="og:url" content="https://vanny-portfolio.vercel.app/" />
-  <meta property="og:image" content="https://vanny-portfolio.vercel.app/assets/images/myProfile.jpg" />
+  <meta property="og:image" content="https://vanny-portfolio.vercel.app/assets/images/og-image.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vanny De Leon — Full-stack Web &amp; Bot Developer" />
   <meta name="twitter:description" content="Self-taught full-stack developer building fast, accessible web and mobile products." />
-  <meta name="twitter:image" content="https://vanny-portfolio.vercel.app/assets/images/myProfile.jpg" />
+  <meta name="twitter:image" content="https://vanny-portfolio.vercel.app/assets/images/og-image.jpg" />
 
   <link rel="canonical" href="https://vanny-portfolio.vercel.app/" />
   <link rel="icon" type="image/x-icon" href="./assets/logo/favicon.ico" />
@@ -27,7 +27,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/style.css?v=202609220741" />
+  <link rel="preload" as="image" href="./assets/images/myProfile.webp" fetchpriority="high" />
   <script src="https://kit.fontawesome.com/0e939e26e7.js" crossorigin="anonymous" defer></script>
 
   <!-- Flags JS support before first paint so reveal animations never hide content from no-JS visitors -->
@@ -42,12 +43,13 @@
   <header class="header" id="header">
     <div class="header__inner">
       <a href="#home" class="logo" aria-label="VannyDev — home">
-        <img src="./assets/logo/myLogo.png" alt="VannyDev logo" width="44" height="44" />
+        <img src="./assets/logo/myLogo.webp" alt="VannyDev logo" width="44" height="44" />
       </a>
       <nav class="nav" id="nav" aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#work">Work</a>
+        <a href="#competitions">Competitions</a>
         <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -92,7 +94,7 @@
             <span class="hero__stat-label">Selected Projects</span>
           </div>
           <div class="hero__stat">
-            <span class="hero__stat-num" data-count="8">8</span>
+            <span class="hero__stat-num" data-count="4">4</span>
             <span class="hero__stat-label">Languages Spoken</span>
           </div>
         </div>
@@ -100,7 +102,8 @@
 
       <div class="hero__photo-col" data-px="-0.07" data-px-max="55" data-depth="14">
         <div class="hero__photo-frame">
-          <img src="./assets/images/myProfile.jpg" alt="Portrait of Jovanny De Leon" class="hero__photo"
+          <img src="./assets/images/myProfile.webp" alt="Portrait of Jovanny De Leon" class="hero__photo"
+               width="760" height="760" fetchpriority="high" decoding="async"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <div class="hero__photo-placeholder">
             <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -132,7 +135,7 @@
         <div class="about__image-wrap" data-reveal="left">
           <div class="about__image">
             <div class="image-placeholder">
-              <img src="./assets/images/aboutMe.jpg" alt="Jovanny De Leon at work" loading="lazy" data-px="0.08" data-px-max="22" />
+              <img src="./assets/images/aboutMe.webp" alt="Jovanny De Leon at work" loading="lazy" data-px="0.08" data-px-max="22" />
             </div>
             <div class="about__badge" data-px="-0.09" data-px-max="24">
               <span class="badge-num">2+</span>
@@ -150,75 +153,75 @@
           <p class="section-label" style="margin-top:2rem;">Skills &amp; Tools</p>
           <div class="skills-grid">
             <div class="skill-card" title="HTML5">
-              <img src="./assets/logo/html.png" alt="HTML5" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/html.webp" alt="HTML5" loading="lazy" width="22" height="22" />
               <span class="skill-name">HTML</span>
             </div>
             <div class="skill-card" title="CSS3">
-              <img src="./assets/logo/css.png" alt="CSS3" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/css.webp" alt="CSS3" loading="lazy" width="22" height="22" />
               <span class="skill-name">CSS</span>
             </div>
             <div class="skill-card" title="JavaScript">
-              <img src="./assets/logo/javascript.png" alt="JavaScript" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/javascript.webp" alt="JavaScript" loading="lazy" width="22" height="22" />
               <span class="skill-name">JavaScript</span>
             </div>
             <div class="skill-card" title="TypeScript">
-              <img src="./assets/logo/typescript.png" alt="TypeScript" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/typescript.webp" alt="TypeScript" loading="lazy" width="22" height="22" />
               <span class="skill-name">TypeScript</span>
             </div>
             <div class="skill-card" title="C">
-              <img src="./assets/logo/c.png" alt="C" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/c.webp" alt="C" loading="lazy" width="22" height="22" />
               <span class="skill-name">C</span>
             </div>
             <div class="skill-card" title="C++">
-              <img src="./assets/logo/c++.png" alt="C++" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/c++.webp" alt="C++" loading="lazy" width="22" height="22" />
               <span class="skill-name">C++</span>
             </div>
             <div class="skill-card" title="Python">
-              <img src="./assets/logo/python.png" alt="Python" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/python.webp" alt="Python" loading="lazy" width="22" height="22" />
               <span class="skill-name">Python</span>
             </div>
             <div class="skill-card" title="PHP">
-              <img src="./assets/logo/php.png" alt="PHP" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/php.webp" alt="PHP" loading="lazy" width="22" height="22" />
               <span class="skill-name">PHP</span>
             </div>
             <div class="skill-card" title="Java">
-              <img src="./assets/logo/java.png" alt="Java" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/java.webp" alt="Java" loading="lazy" width="22" height="22" />
               <span class="skill-name">Java</span>
             </div>
             <div class="skill-card" title="Node.js">
-              <img src="./assets/logo/nodejs.png" alt="Node.js" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/nodejs.webp" alt="Node.js" loading="lazy" width="22" height="22" />
               <span class="skill-name">Node.js</span>
             </div>
             <div class="skill-card" title="React">
-              <img src="./assets/logo/reactjs.png" alt="React" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/reactjs.webp" alt="React" loading="lazy" width="22" height="22" />
               <span class="skill-name">React</span>
             </div>
             <div class="skill-card" title="Vite">
-              <img src="./assets/logo/vite.png" alt="Vite" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/vite.webp" alt="Vite" loading="lazy" width="22" height="22" />
               <span class="skill-name">Vite</span>
             </div>
             <div class="skill-card" title="Bootstrap">
-              <img src="./assets/logo/bootstrap.png" alt="Bootstrap" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/bootstrap.webp" alt="Bootstrap" loading="lazy" width="22" height="22" />
               <span class="skill-name">Bootstrap</span>
             </div>
             <div class="skill-card" title="Tailwind CSS">
-              <img src="./assets/logo/tailwind.png" alt="Tailwind CSS" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/tailwind.webp" alt="Tailwind CSS" loading="lazy" width="22" height="22" />
               <span class="skill-name">Tailwind</span>
             </div>
             <div class="skill-card" title="MongoDB">
-              <img src="./assets/logo/mongodb.png" alt="MongoDB" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/mongodb.webp" alt="MongoDB" loading="lazy" width="22" height="22" />
               <span class="skill-name">MongoDB</span>
             </div>
             <div class="skill-card" title="MySQL">
-              <img src="./assets/logo/mysql.png" alt="MySQL" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/mysql.webp" alt="MySQL" loading="lazy" width="22" height="22" />
               <span class="skill-name">MySQL</span>
             </div>
             <div class="skill-card" title="Git">
-              <img src="./assets/logo/git.png" alt="Git" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/git.webp" alt="Git" loading="lazy" width="22" height="22" />
               <span class="skill-name">Git</span>
             </div>
             <div class="skill-card" title="npm">
-              <img src="./assets/logo/npm.png" alt="npm" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/npm.webp" alt="npm" loading="lazy" width="22" height="22" />
               <span class="skill-name">npm</span>
             </div>
             <div class="skill-card" title="Visual Studio Code">
@@ -226,11 +229,11 @@
               <span class="skill-name">VS Code</span>
             </div>
             <div class="skill-card" title="Android Studio">
-              <img src="./assets/logo/androidStudio.png" alt="Android Studio" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/androidStudio.webp" alt="Android Studio" loading="lazy" width="22" height="22" />
               <span class="skill-name">Android Studio</span>
             </div>
             <div class="skill-card" title="Figma">
-              <img src="./assets/logo/figma.png" alt="Figma" loading="lazy" width="22" height="22" />
+              <img src="./assets/logo/figma.webp" alt="Figma" loading="lazy" width="22" height="22" />
               <span class="skill-name">Figma</span>
             </div>
           </div>
@@ -321,7 +324,7 @@
 
         <article class="project" data-reveal="scale" data-tilt>
           <div class="project__media">
-            <img src="./assets/thumnails/qampus.png" alt="Qampus queueing system interface" loading="lazy" data-px="0.10" data-px-max="26" />
+            <img src="./assets/thumnails/qampus.webp" alt="Qampus queueing system interface" loading="lazy" data-px="0.10" data-px-max="26" />
           </div>
           <div class="project__glare" aria-hidden="true"></div>
           <div class="project__info">
@@ -339,7 +342,7 @@
 
         <article class="project" data-reveal="scale" data-tilt>
           <div class="project__media">
-            <img src="./assets/thumnails/talktovanny.png" alt="TalkToVanny messaging platform interface" loading="lazy" data-px="0.10" data-px-max="26" />
+            <img src="./assets/thumnails/talktovanny.webp" alt="TalkToVanny messaging platform interface" loading="lazy" data-px="0.10" data-px-max="26" />
           </div>
           <div class="project__glare" aria-hidden="true"></div>
           <div class="project__info">
@@ -355,7 +358,7 @@
 
         <article class="project" data-reveal="scale" data-tilt>
           <div class="project__media">
-            <img src="./assets/thumnails/mathpad.png" alt="MathPad learning platform interface" loading="lazy" data-px="0.10" data-px-max="26" />
+            <img src="./assets/thumnails/mathpad.webp" alt="MathPad learning platform interface" loading="lazy" data-px="0.10" data-px-max="26" />
           </div>
           <div class="project__glare" aria-hidden="true"></div>
           <div class="project__info">
@@ -370,7 +373,7 @@
 
         <article class="project" data-reveal="scale" data-tilt>
           <div class="project__media">
-            <img src="./assets/thumnails/socialLinks.png" alt="SocialLinks profile page" loading="lazy" data-px="0.10" data-px-max="26" />
+            <img src="./assets/thumnails/socialLinks.webp" alt="SocialLinks profile page" loading="lazy" data-px="0.10" data-px-max="26" />
           </div>
           <div class="project__glare" aria-hidden="true"></div>
           <div class="project__info">
@@ -388,82 +391,183 @@
     </div>
   </section>
 
-  <!-- ══════════ GALLERY ══════════ -->
+  <!-- ══════════ COMPETITIONS ══════════ -->
+  <section class="competitions section" id="competitions">
+    <div class="section-glow" data-px="0.22" data-px-max="90" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <p class="section-label">Tech Competitions</p>
+        <h2 class="section-title" data-px="-0.04" data-px-max="26">Where I've<br /><em>competed</em></h2>
+        <p class="about__body" style="margin-top:1rem;">Click an entry to view its certificate or photo.</p>
+      </div>
+
+      <ol class="timeline">
+          <li class="timeline__item timeline__item--open">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <p class="timeline__period">Aug 2026</p>
+            <h3 class="timeline__title">
+              <button class="comp-open" type="button"
+                      data-lightbox="./assets/thumnails/idea2startup-team.webp"
+                      data-caption="Idea2Startup Bootcamp 2026: NEXUS Multiverse &mdash; Team All CEO at Naga College Foundation, 25&ndash;26 August 2026"
+                      aria-label="Idea2Startup Bootcamp 2026 &mdash; view team photo">
+                Idea2Startup Bootcamp 2026
+                <span class="comp-open__icon" aria-hidden="true">&#10530;</span>
+              </button>
+            </h3>
+            <p class="timeline__meta">NCF TIGRE Technology Business Incubator &middot; Naga College Foundation</p>
+            <p class="timeline__desc">Pitched as <strong>Team All CEO</strong> in the <strong>NEXUS Multiverse</strong> bootcamp hackathon &mdash; one of 12 teams formed across 5 departments &mdash; developing startup ideas with mentors and showcasing proposed solutions on the spot.</p>
+            <ul class="timeline__tags">
+              <li>Team All CEO</li>
+              <li>NEXUS Multiverse</li>
+              <li>Startup Pitching</li>
+              <li>2 Days</li>
+              <li>12 Teams &middot; 5 Departments</li>
+            </ul>
+            <p class="timeline__note">Showcase format &mdash; no certificate issued, so this one opens the team photo.</p>
+            <a class="link-arrow timeline__extlink" href="https://www.facebook.com/share/p/1DLounw7wT/" target="_blank" rel="noopener">See the event post &rarr;</a>
+          </li>
+
+          <li class="timeline__item timeline__item--open">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <p class="timeline__period">Jun 2026</p>
+            <h3 class="timeline__title">
+              <button class="comp-open" type="button"
+                      data-gallery='[{"src":"./assets/thumnails/aseanai-full.webp","caption":"ASEAN AI Hackathon 2026 — Certificate of Participation, Team Unauthorized 404"},{"src":"./assets/thumnails/aseanai-workshop1-full.webp","caption":"Workshop 1 — “Human-Centric AI and Regional Problem Solving”, Mapúa MCL Global Classroom, 23 April 2026"}]'
+                      aria-label="ASEAN AI Hackathon 2026 &mdash; view 2 certificates">
+                ASEAN AI Hackathon 2026
+                <span class="comp-open__icon" aria-hidden="true">&#10530;</span>
+                <span class="comp-open__badge" aria-hidden="true">2</span>
+              </button>
+            </h3>
+            <p class="timeline__meta">Passage to ASEAN &amp; ASEAN AI Council &middot; Representing Naga College Foundation</p>
+            <p class="timeline__desc">Competed as <strong>Team Unauthorized 404</strong> in the region-wide AI hackathon, run under the theme &ldquo;AI for a Resilient ASEAN&rdquo; &mdash; innovation, sustainability and humanity. Included Workshop&nbsp;1 on human-centric AI at Mapúa MCL.</p>
+            <ul class="timeline__tags">
+              <li>Team Unauthorized 404</li>
+              <li>ASEAN Regional</li>
+              <li>AI / Machine Learning</li>
+            </ul>
+          </li>
+
+          <li class="timeline__item timeline__item--open">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <p class="timeline__period">May 2026</p>
+            <p class="timeline__award">Master of EdTech Innovation</p>
+            <h3 class="timeline__title">
+              <button class="comp-open" type="button"
+                      data-gallery='[{"src": "./assets/thumnails/ccsoneup-recognition-full.webp", "caption": "Certificate of Recognition — Master of EdTech Innovation, Team ChatgipiTech, CCS One Up Hackathon"}, {"src": "./assets/thumnails/ccsoneup-participation-full.webp", "caption": "Certificate of Participation — CCS One Up Hackathon, MTV Hall, 13 May 2026"}]'
+                      aria-label="CCS One Up Hackathon &mdash; view 2 certificates">
+                CCS One Up Hackathon
+                <span class="comp-open__icon" aria-hidden="true">&#10530;</span>
+                <span class="comp-open__badge" aria-hidden="true">2</span>
+              </button>
+            </h3>
+            <p class="timeline__meta">Naga College Foundation CCS &middot; NCF TIGRE TBI &amp; Startup Founders Association</p>
+            <p class="timeline__desc">Competed as <strong>Team ChatgipiTech</strong> at MTV Hall under the theme &ldquo;A Better Tomorrow Bit by Bit&rdquo;, and took the <strong>Master of EdTech Innovation</strong> award for a solution that transforms learning through accessible technology.</p>
+            <ul class="timeline__tags">
+              <li>Team ChatgipiTech</li>
+              <li>EdTech</li>
+              <li>Hackathon</li>
+            </ul>
+          </li>
+
+          <li class="timeline__item timeline__item--open">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <p class="timeline__period">Feb 2026</p>
+            <h3 class="timeline__title">
+              <button class="comp-open" type="button"
+                      data-lightbox="./assets/thumnails/softwarefestival-full.webp"
+                      data-caption="Software Festival 2026 &mdash; Certificate of Participation, Team STATUS 404"
+                      aria-label="Software Festival 2026 &mdash; view certificate">
+                Software Festival 2026
+                <span class="comp-open__icon" aria-hidden="true">&#10530;</span>
+              </button>
+            </h3>
+            <p class="timeline__meta">Naga College Foundation &middot; 79th Foundation Anniversary</p>
+            <p class="timeline__desc">Competed as <strong>Team STATUS 404</strong> in NCF’s software development festival, showcasing innovation and creativity in software development and technology. Held at the Student Pavilion, Naga City.</p>
+            <ul class="timeline__tags">
+              <li>Team STATUS 404</li>
+              <li>Software Development</li>
+              <li>Participant</li>
+            </ul>
+          </li>
+
+          <li class="timeline__item timeline__item--open">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <p class="timeline__period">Oct 2025</p>
+            <h3 class="timeline__title">
+              <button class="comp-open" type="button"
+                      data-lightbox="./assets/thumnails/hackathon-full.webp"
+                      data-caption="SparkLAB Hackathon 2025 &mdash; Ateneo Arts and Algorithm Festival, Team ExtraRizz"
+                      aria-label="SparkLAB Hackathon 2025 &mdash; view certificate">
+                SparkLAB Hackathon 2025
+                <span class="comp-open__icon" aria-hidden="true">&#10530;</span>
+              </button>
+            </h3>
+            <p class="timeline__meta">Ateneo Arts &amp; Algorithm Festival &middot; Ateneo de Naga University</p>
+            <p class="timeline__desc">Competed as <strong>Team ExtraRizz</strong> in a two-day hackathon at the Alingal Multipurpose Hall, hosted by the College of Computer Studies with TACTICS and ADNU MAGIS TBI.</p>
+            <ul class="timeline__tags">
+              <li>Team ExtraRizz</li>
+              <li>Hackathon</li>
+              <li>2 Days</li>
+            </ul>
+          </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ══════════ GALLERY — SKILLS & HOBBIES ══════════ -->
   <section class="gallery section" id="gallery">
     <div class="section-glow" data-px="0.22" data-px-max="90" aria-hidden="true"></div>
     <div class="container">
       <div class="section-header" data-reveal>
         <p class="section-label">A Little About Me</p>
-        <h2 class="section-title" data-px="-0.04" data-px-max="26">Skills, Certificates &amp;<br /><em>Interests</em></h2>
+        <h2 class="section-title" data-px="-0.04" data-px-max="26">Beyond the<br /><em>code</em></h2>
       </div>
 
-      <div class="gallery-grid">
-
-        <article class="gallery-card" data-reveal="scale" data-tilt>
-          <div class="gallery-card__media" data-lightbox="./assets/thumnails/hackathon.png" data-caption="SparkLAB Hackathon 2025 — Ateneo Arts and Algorithm Festival" aria-label="Open SparkLAB Hackathon certificate">
-            <img src="./assets/thumnails/hackathon.png" alt="SparkLAB Hackathon certificate" class="gallery-card__img" loading="lazy" data-px="0.10" data-px-max="26" />
-            <span class="gallery-card__zoom" aria-hidden="true">⤢</span>
-          </div>
-          <div class="project__glare" aria-hidden="true"></div>
-          <div class="gallery-card__info">
-            <span class="gallery-card__tag">Certificate</span>
-            <h3 class="gallery-card__title">SparkLAB Hackathon</h3>
-            <p class="gallery-card__desc">Actively participating in SparkLAB Hackathon 2025 during the Ateneo Arts and Algorithm Festival.</p>
-            <div class="gallery-card__links">
-              <a href="./assets/thumnails/hackathon.png" class="link-arrow" data-lightbox="./assets/thumnails/hackathon.png" data-caption="SparkLAB Hackathon 2025">View Certificate →</a>
+      <!-- ── SKILLS ── -->
+      <div class="gallery-group" data-reveal>
+        <h3 class="gallery-group__title">Skills</h3>
+        <div class="gallery-grid">
+          <article class="gallery-card gallery-card--row" data-reveal="scale" data-tilt>
+            <div class="gallery-card__media" data-lightbox="./assets/thumnails/linguist-full.webp" data-caption="Languages: Filipino, English, Bahasa Indonesia, Melayu, Vietnamese, Mandarin, Spanish, Russian" aria-label="Open languages image">
+              <img src="./assets/thumnails/linguist.webp" alt="Languages Vanny speaks" class="gallery-card__img" loading="lazy" data-px="0.10" data-px-max="26" />
+              <span class="gallery-card__zoom" aria-hidden="true">&#10530;</span>
             </div>
-          </div>
-        </article>
-
-        <article class="gallery-card" data-reveal="scale" data-tilt>
-          <div class="gallery-card__media" data-lightbox="./assets/thumnails/softwarefestival.png" data-caption="Software Festival 2026 — 79th Foundation Anniversary" aria-label="Open Software Festival certificate">
-            <img src="./assets/thumnails/softwarefestival.png" alt="Software Festival 2026 certificate" class="gallery-card__img" loading="lazy" data-px="0.10" data-px-max="26" />
-            <span class="gallery-card__zoom" aria-hidden="true">⤢</span>
-          </div>
-          <div class="project__glare" aria-hidden="true"></div>
-          <div class="gallery-card__info">
-            <span class="gallery-card__tag">Certificate</span>
-            <h3 class="gallery-card__title">Software Festival 2026</h3>
-            <p class="gallery-card__desc">Actively participating in Software Festival 2026 during the 79th Foundation Anniversary.</p>
-            <div class="gallery-card__links">
-              <a href="./assets/thumnails/softwarefestival.png" class="link-arrow" data-lightbox="./assets/thumnails/softwarefestival.png" data-caption="Software Festival 2026">View Certificate →</a>
+            <div class="project__glare" aria-hidden="true"></div>
+            <div class="gallery-card__info">
+              <span class="gallery-card__tag">Languages</span>
+              <h3 class="gallery-card__title">Linguist</h3>
+              <p class="gallery-card__desc">Bikol(dialect), Filipino, English, Bahasa Indonesia &mdash; picked up mostly by talking to people in their own language.</p>
+              <div class="gallery-card__links">
+                <a href="./assets/thumnails/linguist-full.webp" class="link-arrow" data-lightbox="./assets/thumnails/linguist-full.webp" data-caption="Languages Vanny speaks">View Image &rarr;</a>
+              </div>
             </div>
-          </div>
-        </article>
-
-        <article class="gallery-card" data-reveal="scale" data-tilt>
-          <div class="gallery-card__media" data-lightbox="./assets/thumnails/linguist.png" data-caption="Languages: Filipino, English, Bahasa Indonesia, Melayu, Vietnamese, Mandarin, Spanish, Russian" aria-label="Open languages image">
-            <img src="./assets/thumnails/linguist.png" alt="Languages Vanny speaks" class="gallery-card__img" loading="lazy" data-px="0.10" data-px-max="26" />
-            <span class="gallery-card__zoom" aria-hidden="true">⤢</span>
-          </div>
-          <div class="project__glare" aria-hidden="true"></div>
-          <div class="gallery-card__info">
-            <span class="gallery-card__tag">Skill</span>
-            <h3 class="gallery-card__title">Linguist</h3>
-            <p class="gallery-card__desc">Filipino, English, Bahasa Indonesia, Melayu, Vietnamese, Chinese (Mandarin), Spanish, Russian.</p>
-            <div class="gallery-card__links">
-              <a href="./assets/thumnails/linguist.png" class="link-arrow" data-lightbox="./assets/thumnails/linguist.png" data-caption="Languages Vanny speaks">View Image →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="gallery-card" data-reveal="scale" data-tilt>
-          <div class="gallery-card__media" data-lightbox="./assets/thumnails/sepakTakraw.jpeg" data-caption="Sepak Takraw — competing since 2016" aria-label="Open Sepak Takraw image">
-            <img src="./assets/thumnails/sepakTakraw.jpeg" alt="Vanny playing Sepak Takraw" class="gallery-card__img" loading="lazy" data-px="0.10" data-px-max="26" />
-            <span class="gallery-card__zoom" aria-hidden="true">⤢</span>
-          </div>
-          <div class="project__glare" aria-hidden="true"></div>
-          <div class="gallery-card__info">
-            <span class="gallery-card__tag">Hobby</span>
-            <h3 class="gallery-card__title">Sepak Takraw Athlete</h3>
-            <p class="gallery-card__desc">Consistent Sepak Takraw athlete since 2016.</p>
-            <div class="gallery-card__links">
-              <a href="./assets/thumnails/sepakTakraw.jpeg" class="link-arrow" data-lightbox="./assets/thumnails/sepakTakraw.jpeg" data-caption="Sepak Takraw since 2016">View Image →</a>
-            </div>
-          </div>
-        </article>
-
+          </article>
+        </div>
       </div>
+
+      <!-- ── HOBBIES ── -->
+      <div class="gallery-group" data-reveal>
+        <h3 class="gallery-group__title">Hobbies</h3>
+        <div class="gallery-grid">
+          <article class="gallery-card gallery-card--row" data-reveal="scale" data-tilt>
+            <div class="gallery-card__media" data-lightbox="./assets/thumnails/sepakTakraw-full.webp" data-caption="Sepak Takraw &mdash; competing since 2016" aria-label="Open Sepak Takraw image">
+              <img src="./assets/thumnails/sepakTakraw.webp" alt="Vanny playing Sepak Takraw" class="gallery-card__img" loading="lazy" data-px="0.10" data-px-max="26" />
+              <span class="gallery-card__zoom" aria-hidden="true">&#10530;</span>
+            </div>
+            <div class="project__glare" aria-hidden="true"></div>
+            <div class="gallery-card__info">
+              <span class="gallery-card__tag">Sport</span>
+              <h3 class="gallery-card__title">Sepak Takraw Athlete</h3>
+              <p class="gallery-card__desc">Competing consistently since 2016 &mdash; the sport that taught me how to keep showing up and practising something until it clicks.</p>
+              <div class="gallery-card__links">
+                <a href="./assets/thumnails/sepakTakraw-full.webp" class="link-arrow" data-lightbox="./assets/thumnails/sepakTakraw-full.webp" data-caption="Sepak Takraw since 2016">View Image &rarr;</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -500,6 +604,7 @@
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#work">Work</a>
+            <a href="#competitions">Competitions</a>
             <a href="#gallery">Gallery</a>
           </div>
           <div class="footer__col">
@@ -515,7 +620,7 @@
 
       <div class="footer__bottom">
         <a href="#home" class="logo" aria-label="Back to top">
-          <img src="./assets/logo/myLogo.png" alt="VannyDev logo" width="44" height="44" loading="lazy" />
+          <img src="./assets/logo/myLogo.webp" alt="VannyDev logo" width="44" height="44" loading="lazy" />
         </a>
         <p class="footer__copy">© <span id="year">2026</span> Jovanny De Leon — built with care.</p>
       </div>
@@ -564,13 +669,20 @@
     <button class="lightbox__close" type="button" aria-label="Close image viewer">
       <i class="fa-solid fa-xmark" aria-hidden="true"></i>
     </button>
+    <button class="lightbox__nav lightbox__prev" type="button" aria-label="Previous image">
+      <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+    </button>
+    <button class="lightbox__nav lightbox__next" type="button" aria-label="Next image">
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+    </button>
     <figure class="lightbox__figure">
       <img class="lightbox__img" src="" alt="" />
       <figcaption class="lightbox__caption"></figcaption>
+      <p class="lightbox__count" aria-live="polite"></p>
     </figure>
   </div>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script src="./assets/js/main.js" defer></script>
+  <script src="./assets/js/main.js?v=202609220741" defer></script>
 </body>
 </html>
