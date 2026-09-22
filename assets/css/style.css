@@ -17,8 +17,10 @@
   /* Ink */
   --text:          #e6f3ff;
   --text-soft:     #a8c4dd;
-  --text-muted:    #6a8faa;
-  --text-faint:    #3f5f7a;
+  --text-muted:    #6d92ad;   /* was #6a8faa — 4.4994:1 on --surface-3, a hair under AA */
+  --text-faint:    #5a7d9c;   /* was #3f5f7a (2.58:1). Only for the footer line
+                                 on --bg-deep (4.72:1) and decorative marks —
+                                 small text uses --text-muted. */
 
   /* Accent ramp */
   --accent:        #00d2ff;
@@ -312,7 +314,7 @@ button { font: inherit; color: inherit; background: none; border: 0; }
 .link-arrow:hover { gap: .65rem; color: var(--accent-bright); }
 .link-arrow:hover::after { width: 100%; }
 .link-arrow[aria-disabled="true"] {
-  color: var(--text-faint);
+  color: var(--text-muted);
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -612,9 +614,9 @@ body.nav-locked { overflow: hidden; }
 
 /* Quick stat strip under the CTAs */
 .hero__stats {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  justify-items: center;
   gap: 1.25rem 2.25rem;
   margin-top: 2.5rem;
   padding-top: 1.75rem;
@@ -925,7 +927,7 @@ body.nav-locked { overflow: hidden; }
 
 .contrib-graph__hint {
   font-size: .7rem;
-  color: var(--text-faint);
+  color: var(--text-muted);
   margin-top: .6rem;
 }
 @media (min-width: 760px) { .contrib-graph__hint { display: none; } }
@@ -1809,7 +1811,7 @@ body.demo-open .gallery-card { transition: none; }
 }
 .demo-modal__url {
   font-size: .7rem;
-  color: var(--text-faint);
+  color: var(--text-muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2011,6 +2013,71 @@ body.demo-open .gallery-card { transition: none; }
 .copy-btn:hover { color: var(--accent); border-color: var(--border-strong); background: var(--accent-faint); }
 .copy-btn.copied { color: var(--bg-deep); background: var(--accent); border-color: var(--accent); }
 
+/* ── Contact form ── */
+.contact-form {
+  display: grid;
+  gap: .9rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 34rem;
+  text-align: left;
+}
+.field { display: grid; gap: .4rem; }
+.field label {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.field input,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  font-size: .92rem;
+  color: var(--text);
+  background: rgba(255, 255, 255, .03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: .75rem .9rem;
+  transition: border-color var(--trans), background var(--trans), box-shadow var(--trans);
+}
+.field textarea { resize: vertical; min-height: 120px; }
+.field input::placeholder,
+.field textarea::placeholder { color: var(--text-muted); }
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--accent-faint);
+  box-shadow: 0 0 0 3px rgba(0, 210, 255, .12);
+}
+/* :user-invalid only fires after the visitor has actually interacted */
+.field input:user-invalid,
+.field textarea:user-invalid { border-color: #ff6b6b; }
+.field input:user-invalid ~ .field__error,
+.field textarea:user-invalid ~ .field__error { display: block; }
+.field__error { display: none; font-size: .74rem; color: #ff8585; }
+
+/* Honeypot — hidden from people, tempting to bots */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.contact-form__submit { justify-self: start; }
+.contact-form__submit[disabled] { opacity: .6; cursor: progress; }
+
+.form-status {
+  display: none;
+  align-items: flex-start;
+  gap: .5rem;
+  font-size: .85rem;
+  padding: .7rem .9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+}
+.form-status.show { display: flex; }
+.form-status.ok   { color: #7ef0c0; background: rgba(60, 220, 160, .08); border-color: rgba(60, 220, 160, .3); }
+.form-status.bad  { color: #ff9b9b; background: rgba(255, 107, 107, .08); border-color: rgba(255, 107, 107, .3); }
+
 .footer__socials { display: flex; gap: .6rem; margin-top: 1.5rem; justify-content: center; }
 .footer__social {
   width: 42px;
@@ -2166,13 +2233,13 @@ body.demo-open .gallery-card { transition: none; }
     text-align: left;
     gap: 3.5rem;
   }
-  .hero__content { flex: 1 1 520px; max-width: 34rem; }
+  .hero__content { flex: 1 1 560px; max-width: 37rem; }   /* room for the 4-up stat row */
   .hero__photo-col { flex: 0 0 auto; }
   .hero__photo-frame { width: 300px; }
   .hero__sub { margin-left: 0; margin-right: 0; }
   .hero__cta { justify-content: flex-start; }
   .hero__eyebrow { justify-content: flex-start; }
-  .hero__stats { justify-content: flex-start; gap: 1.5rem 2.75rem; }
+  .hero__stats { grid-template-columns: repeat(4, auto); justify-items: start; gap: 1.5rem 2.1rem; }
   .hero__stat { align-items: flex-start; }
 
   /* Photo and GitHub panel stack in the left column, bio spans both rows */

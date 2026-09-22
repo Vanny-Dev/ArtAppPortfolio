@@ -1,0 +1,42 @@
+# Files kept locally as source masters but never requested by the site.
+# Excluding them keeps the deploy lean without destroying the originals.
+# Regenerate the optimised WebPs from these if you ever need other sizes.
+
+*.bak
+
+# Original full-size images (superseded by .webp)
+assets/images/aboutMe.jpg
+assets/images/myProfile.jpg
+assets/logo/androidStudio.png
+assets/logo/bootstrap.png
+assets/logo/c++.png
+assets/logo/c.png
+assets/logo/css.png
+assets/logo/figma.png
+assets/logo/git.png
+assets/logo/html.png
+assets/logo/java.png
+assets/logo/javascript.png
+assets/logo/mongodb.png
+assets/logo/myLogo.png
+assets/logo/mysql.png
+assets/logo/nodejs.png
+assets/logo/npm.png
+assets/logo/php.png
+assets/logo/python.png
+assets/logo/reactjs.png
+assets/logo/tailwind.png
+assets/logo/typescript.png
+assets/logo/vite.png
+assets/logo/vscode.webp
+assets/thumnails/hackathon.png
+assets/thumnails/hackathon.webp
+assets/thumnails/linguist.png
+assets/thumnails/mathpad.png
+assets/thumnails/qampus.png
+assets/thumnails/sepakTakraw.jpeg
+assets/thumnails/socialLinks.png
+assets/thumnails/softwarefestival.jfif
+assets/thumnails/softwarefestival.png
+assets/thumnails/softwarefestival.webp
+assets/thumnails/talktovanny.png

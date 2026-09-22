@@ -691,6 +691,64 @@
   }
 
   /* ─────────────────────────────────────────────
+     13c. CONTACT FORM
+     Submits over fetch so the visitor never leaves the
+     page; falls back to a normal POST if JS is off.
+     ───────────────────────────────────────────── */
+  function initContactForm() {
+    const form = $('#contact-form');
+    if (!form) return;
+    const statusEl = $('#form-status');
+    const button   = $('.contact-form__submit', form);
+    const original = button.textContent;
+
+    const say = (msg, ok) => {
+      statusEl.textContent = msg;
+      statusEl.className = 'form-status show ' + (ok ? 'ok' : 'bad');
+    };
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const key = form.querySelector('[name="access_key"]').value;
+      if (!key || key.startsWith('YOUR-')) {
+        say('This form isn\u2019t connected yet \u2014 email me directly at jovannydeleon2906@gmail.com.', false);
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = 'Sending\u2026';
+      statusEl.className = 'form-status';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok && data.success !== false) {
+          say('Thanks \u2014 your message is on its way. I\u2019ll reply soon.', true);
+          form.reset();
+        } else {
+          say(data.message || 'Something went wrong. Please email me directly instead.', false);
+        }
+      } catch (_) {
+        say('Couldn\u2019t reach the server. Please email me directly instead.', false);
+      } finally {
+        button.disabled = false;
+        button.textContent = original;
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────────
      14. COPY EMAIL
      ───────────────────────────────────────────── */
   function initCopyEmail() {
@@ -743,6 +801,7 @@
     initHeroDepth();
     initLightbox();
     initDemoModal();
+    initContactForm();
     initCopyEmail();
   }
 
