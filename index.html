@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="./assets/css/style.css?v=202609220848" />
+  <link rel="stylesheet" href="./assets/css/style.css?v=202609220901" />
   <link rel="preload" as="image" href="./assets/images/myProfile.webp" fetchpriority="high" />
   <script src="https://kit.fontawesome.com/0e939e26e7.js" crossorigin="anonymous" defer></script>
 
@@ -70,12 +70,49 @@
         <img src="./assets/logo/myLogo.webp" alt="VannyDev logo" width="44" height="44" />
       </a>
       <nav class="nav" id="nav" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#competitions">Competitions</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
+        <p class="nav__label" aria-hidden="true">Navigation</p>
+
+        <a href="#home">
+          <span class="nav__icon" aria-hidden="true"><i class="fa-solid fa-house"></i></span>
+          <span class="nav__text">Home</span>
+          <span class="nav__num" aria-hidden="true">01</span>
+        </a>
+        <a href="#about">
+          <span class="nav__icon" aria-hidden="true"><i class="fa-solid fa-user"></i></span>
+          <span class="nav__text">About</span>
+          <span class="nav__num" aria-hidden="true">02</span>
+        </a>
+        <a href="#work">
+          <span class="nav__icon" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></span>
+          <span class="nav__text">Work</span>
+          <span class="nav__num" aria-hidden="true">03</span>
+        </a>
+        <a href="#competitions">
+          <span class="nav__icon" aria-hidden="true"><i class="fa-solid fa-trophy"></i></span>
+          <span class="nav__text">Competitions</span>
+          <span class="nav__num" aria-hidden="true">04</span>
+        </a>
+        <a href="#gallery">
+          <span class="nav__icon" aria-hidden="true"><i class="fa-solid fa-images"></i></span>
+          <span class="nav__text">Gallery</span>
+          <span class="nav__num" aria-hidden="true">05</span>
+        </a>
+        <a href="#contact">
+          <span class="nav__icon" aria-hidden="true"><i class="fa-solid fa-paper-plane"></i></span>
+          <span class="nav__text">Contact</span>
+          <span class="nav__num" aria-hidden="true">06</span>
+        </a>
+
+        <div class="nav__footer">
+          <p class="nav__status"><span class="nav__status-dot" aria-hidden="true"></span> Open to work</p>
+          <a class="nav__email" href="mailto:jovannydeleon2906@gmail.com">jovannydeleon2906@gmail.com</a>
+          <div class="nav__socials">
+            <a href="https://github.com/Vanny-Dev" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/jovanny-de-leon-a48a492b0/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/vanny.dev" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.tiktok.com/@vanny_.dev" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+          </div>
+        </div>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
         <span></span><span></span><span></span>
@@ -748,6 +785,6 @@
   </div>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script src="./assets/js/main.js?v=202609220848" defer></script>
+  <script src="./assets/js/main.js?v=202609220901" defer></script>
 </body>
 </html>

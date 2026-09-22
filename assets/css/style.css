@@ -406,6 +406,100 @@ button { font: inherit; color: inherit; background: none; border: 0; }
 .nav a:hover { color: var(--accent); background: var(--accent-faint); transform: translateX(4px); }
 .nav a.active { color: var(--accent); }
 
+/* ── Drawer chrome (mobile only; hidden again at the inline breakpoint) ── */
+.nav__label {
+  font-size: .66rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-left: .2rem;
+  margin-bottom: 1rem;
+}
+
+.nav__icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--hairline);
+  color: var(--text-muted);
+  font-size: .82rem;
+  transition: background var(--trans), border-color var(--trans), color var(--trans), transform .35s var(--ease-spring);
+}
+.nav__text { flex: 1; }
+.nav__num {
+  font-family: var(--font-body);
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  color: var(--text-muted);
+  opacity: .5;
+  transition: opacity var(--trans), color var(--trans);
+}
+
+.nav__footer {
+  margin-top: auto;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+.nav__status {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.nav__status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 var(--accent-glow);
+  animation: ping 2.4s var(--ease-out) infinite;
+}
+.nav a.nav__email {
+  display: block;
+  font-size: .76rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  padding: 0;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  transition: color var(--trans);
+}
+.nav a.nav__email:hover { color: var(--accent); background: none; transform: none; }
+.nav__socials { display: flex; gap: .45rem; margin-top: .25rem; }
+.nav__socials a {
+  font-size: .85rem;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, .02);
+  color: var(--text-muted);
+  font-size: .85rem;
+  padding: 0;
+  transition: all .3s var(--ease-spring);
+}
+.nav__socials a:hover {
+  color: var(--bg-deep);
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
 /* Backdrop behind the drawer */
 .nav-overlay {
   position: fixed;
@@ -449,6 +543,52 @@ button { font: inherit; color: inherit; background: none; border: 0; }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(.2); }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Mobile drawer: layout, states, staggered entrance ── */
+@media (max-width: 674px) {
+  .nav { padding: 5.25rem 1.6rem 1.75rem; gap: 0; }
+
+  .nav > a {
+    display: flex;
+    align-items: center;
+    gap: .85rem;
+    font-family: var(--font-display);
+    font-size: 1.28rem;
+    padding: .8rem .2rem;
+    border-radius: 0;
+    border-bottom: 1px solid var(--hairline);
+    /* start offset; the .open class below plays them in */
+    opacity: 0;
+    transform: translateX(20px);
+    transition:
+      opacity .45s var(--ease-out),
+      transform .45s var(--ease-out),
+      color var(--trans);
+  }
+  .nav > a:hover { background: none; transform: none; }
+  .nav.open > a { opacity: 1; transform: none; }
+
+  /* cascade, so the list assembles rather than appearing all at once */
+  .nav.open > a:nth-of-type(1) { transition-delay: .06s; }
+  .nav.open > a:nth-of-type(2) { transition-delay: .11s; }
+  .nav.open > a:nth-of-type(3) { transition-delay: .16s; }
+  .nav.open > a:nth-of-type(4) { transition-delay: .21s; }
+  .nav.open > a:nth-of-type(5) { transition-delay: .26s; }
+  .nav.open > a:nth-of-type(6) { transition-delay: .31s; }
+
+  .nav > a:hover .nav__icon,
+  .nav > a.active .nav__icon {
+    background: var(--accent-soft);
+    border-color: var(--border-strong);
+    color: var(--accent);
+    transform: scale(1.06);
+  }
+  .nav > a.active { color: var(--accent); }
+  .nav > a.active .nav__num { opacity: 1; color: var(--accent); }
+
+  .nav__footer { opacity: 0; transition: opacity .4s var(--ease-out) .36s; }
+  .nav.open .nav__footer { opacity: 1; }
+}
 
 /* Lock scroll while the drawer is open */
 body.nav-locked { overflow: hidden; }
@@ -2200,6 +2340,11 @@ body.demo-open .gallery-card { transition: none; }
     font-size: .875rem;
     padding: .45rem .85rem;
   }
+  /* drawer-only furniture has no place in the inline bar */
+  .nav__label,
+  .nav__icon,
+  .nav__num,
+  .nav__footer { display: none; }
   .nav a:hover { transform: none; }
 
   /* Sliding underline for the active section */
